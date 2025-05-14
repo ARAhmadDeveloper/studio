@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MoreHorizontal, TrendingUp, Tag, Mail, ClipboardList } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, Label } from 'recharts';
+import { cn } from '@/lib/utils';
 
 const monthlyRevenueData = [
   { month: 'Sep', revenue: 110, target: 80 }, // Adjusted for visual
@@ -60,10 +61,20 @@ const PerformanceCustomLegend = ({ data }: { data: typeof topPerformanceData }) 
   );
 };
 
+interface MarketSectionProps {
+  animate?: boolean;
+}
 
-export default function MarketSection() {
+export default function MarketSection({ animate = false }: MarketSectionProps) {
   return (
-    <section id="market-analysis" className="py-16 md:py-24 bg-card">
+    <section 
+      id="market-analysis" 
+      className={cn(
+        "py-16 md:py-24 bg-card",
+        "opacity-0",
+        animate && "animate-fade-in-gentle"
+      )}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 xl:gap-16 items-start">
           {/* Left Column: Charts */}

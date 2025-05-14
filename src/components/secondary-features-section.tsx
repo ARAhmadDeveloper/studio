@@ -29,9 +29,20 @@ const secondaryFeaturesData = [
   },
 ];
 
-export default function SecondaryFeaturesSection() {
+interface SecondaryFeaturesSectionProps {
+  animate?: boolean;
+}
+
+export default function SecondaryFeaturesSection({ animate = false }: SecondaryFeaturesSectionProps) {
   return (
-    <section id="more-features" className="py-16 md:py-24 bg-footer-background scroll-mt-20">
+    <section 
+      id="more-features" 
+      className={cn(
+        "py-16 md:py-24 bg-footer-background scroll-mt-20",
+        "opacity-0",
+        animate && "animate-fade-in-gentle"
+      )}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">

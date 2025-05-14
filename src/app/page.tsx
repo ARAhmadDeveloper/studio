@@ -3,7 +3,6 @@
 
 import { useState, useEffect } from 'react';
 import HeroSection from '@/components/hero-section';
-// import AiHeadlineGenerator from '@/components/ai-headline-generator'; // Removed import
 import { Separator } from '@/components/ui/separator';
 import FeaturesSection from '@/components/features-section'; 
 import AboutSection from '@/components/about-section'; 
@@ -11,23 +10,32 @@ import SecondaryFeaturesSection from '@/components/secondary-features-section';
 import SalesSection from '@/components/sales-section';
 import MarketSection from '@/components/market-section';
 import CtaSection from '@/components/cta-section'; 
+import { cn } from '@/lib/utils';
 
 export default function HomePage() {
   const [animateHero, setAnimateHero] = useState(false);
+  const [animateFeatures, setAnimateFeatures] = useState(false);
+  const [animateAbout, setAnimateAbout] = useState(false);
+  const [animateSecondaryFeatures, setAnimateSecondaryFeatures] = useState(false);
+  const [animateSales, setAnimateSales] = useState(false);
+  const [animateMarket, setAnimateMarket] = useState(false);
+  const [animateCta, setAnimateCta] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
-    const timer = setTimeout(() => {
-      setAnimateHero(true);
-    }, 100);
-    return () => clearTimeout(timer);
+    const timers = [
+      setTimeout(() => setAnimateHero(true), 100),
+      setTimeout(() => setAnimateFeatures(true), 200),
+      setTimeout(() => setAnimateAbout(true), 300),
+      setTimeout(() => setAnimateSecondaryFeatures(true), 400),
+      setTimeout(() => setAnimateSales(true), 500),
+      setTimeout(() => setAnimateMarket(true), 600),
+      setTimeout(() => setAnimateCta(true), 700),
+    ];
+    return () => timers.forEach(clearTimeout);
   }, []);
 
-  // Removed handleHeadlineGenerated function
-  // const handleHeadlineGenerated = (newHeadline: string) => {
-  //   console.log("AI Generated Headline:", newHeadline);
-  // };
 
   if (!isMounted) {
     // Basic skeleton for sections to avoid layout shift
@@ -41,7 +49,6 @@ export default function HomePage() {
           <div className="mb-16 md:mb-24 h-96 bg-muted rounded-lg animate-pulse"></div> {/* Placeholder for Sales Section */}
           <div className="mb-16 md:mb-24 h-96 bg-muted rounded-lg animate-pulse"></div> {/* Placeholder for Market Section */}
           <div className="my-12 md:my-16 h-64 bg-muted rounded-xl animate-pulse"></div> {/* Placeholder for CtaSection */}
-          {/* Removed Separator and Placeholder for AI Generator */}
         </main>
       </div>
     );
@@ -62,14 +69,12 @@ export default function HomePage() {
         animate={animateHero}
       />
       
-      <FeaturesSection />
-      <AboutSection />
-      <SecondaryFeaturesSection />
-      <SalesSection />
-      <MarketSection />
-      <CtaSection /> 
-
-      {/* Removed AI Headline Generator section and its wrapping main/section tags */}
+      <FeaturesSection animate={animateFeatures} />
+      <AboutSection animate={animateAbout} />
+      <SecondaryFeaturesSection animate={animateSecondaryFeatures} />
+      <SalesSection animate={animateSales} />
+      <MarketSection animate={animateMarket} />
+      <CtaSection animate={animateCta} /> 
     </>
   );
 }

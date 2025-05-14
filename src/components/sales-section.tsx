@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CalendarDays, TrendingUp } from "lucide-react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { cn } from '@/lib/utils';
 
 const salesPoints = [
   { text: "Use limited-time offers or exclusive deals to prompt immediate action." },
@@ -55,10 +56,20 @@ const CustomLegend = (props: any) => {
   );
 };
 
+interface SalesSectionProps {
+  animate?: boolean;
+}
 
-export default function SalesSection() {
+export default function SalesSection({ animate = false }: SalesSectionProps) {
   return (
-    <section id="sales-data" className="py-16 md:py-24 bg-card">
+    <section 
+      id="sales-data" 
+      className={cn(
+        "py-16 md:py-24 bg-card",
+        "opacity-0",
+        animate && "animate-fade-in-gentle"
+      )}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 xl:gap-16 items-center">
           {/* Left Column: Text Content */}

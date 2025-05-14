@@ -2,6 +2,7 @@
 "use client";
 
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 const stats = [
   {
@@ -14,9 +15,20 @@ const stats = [
   },
 ];
 
-export default function AboutSection() {
+interface AboutSectionProps {
+  animate?: boolean;
+}
+
+export default function AboutSection({ animate = false }: AboutSectionProps) {
   return (
-    <section id="about" className="py-16 md:py-24 bg-footer-background">
+    <section 
+      id="about" 
+      className={cn(
+        "py-16 md:py-24 bg-footer-background",
+        "opacity-0",
+        animate && "animate-fade-in-gentle"
+      )}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column: Placeholder Image/Block */}

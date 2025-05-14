@@ -4,10 +4,21 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-export default function CtaSection() {
+interface CtaSectionProps {
+  animate?: boolean;
+}
+
+export default function CtaSection({ animate = false }: CtaSectionProps) {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-sky-100 via-sky-50 to-background rounded-xl shadow-lg my-12 md:my-16 mx-auto max-w-6xl">
+    <section 
+      className={cn(
+        "py-16 md:py-24 bg-gradient-to-b from-sky-100 via-sky-50 to-background rounded-xl shadow-lg my-12 md:my-16 mx-auto max-w-6xl",
+        "opacity-0",
+        animate && "animate-fade-in-gentle"
+      )}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
           Seamless integration to all

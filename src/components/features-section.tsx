@@ -43,9 +43,20 @@ const featuresData = [
   }
 ];
 
-export default function FeaturesSection() {
+interface FeaturesSectionProps {
+  animate?: boolean;
+}
+
+export default function FeaturesSection({ animate = false }: FeaturesSectionProps) {
   return (
-    <section id="features" className="py-16 md:py-24 bg-background scroll-mt-20">
+    <section 
+      id="features" 
+      className={cn(
+        "py-16 md:py-24 bg-background scroll-mt-20",
+        "opacity-0", // Start hidden
+        animate && "animate-fade-in-gentle" // Apply animation when prop is true
+      )}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">
