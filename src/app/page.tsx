@@ -1,11 +1,11 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
 import HeroSection from '@/components/hero-section';
 import AiHeadlineGenerator from '@/components/ai-headline-generator';
 import { Separator } from '@/components/ui/separator';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+// Button and Link are no longer needed directly for CTAs if handled by Navbar
 import { CheckCircle, Zap, Palette } from 'lucide-react';
 
 export default function HomePage() {
@@ -27,20 +27,31 @@ export default function HomePage() {
   const handleHeadlineGenerated = (newHeadline: string) => {
     setHeadline(newHeadline);
     setAnimateHero(false); 
-    // Trigger re-animation for the headline if desired, or entire hero
-    // For simplicity, we ensure the animation plays on first load, 
-    // and updates text directly on subsequent generations.
-    // A more complex setup could re-animate specific text elements.
     setTimeout(() => setAnimateHero(true), 50);
   };
 
   if (!isMounted) {
-    // To prevent hydration mismatch for animations triggered on mount
-    return null; 
+    // Basic skeleton for hero section to avoid layout shift
+    return (
+      <div className="flex flex-col min-h-screen bg-background">
+        <div className="w-full min-h-[70vh] md:min-h-[80vh] bg-muted animate-pulse"></div>
+        <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+          <div className="mb-16 md:mb-24 h-64 bg-muted rounded-lg animate-pulse"></div>
+          <Separator className="my-12 md:my-16" />
+          <div className="h-40 bg-muted rounded-lg animate-pulse"></div>
+        </main>
+        <footer className="py-8 mt-16 border-t border-border">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-muted-foreground text-sm">
+            Loading...
+          </div>
+        </footer>
+      </div>
+    );
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    // Removed the outer div with flex flex-col min-h-screen from here, as it's now in RootLayout
+    <> 
       <HeroSection
         headline={headline}
         subheadline={subheadline}
@@ -49,13 +60,13 @@ export default function HomePage() {
         imageAlt="Abstract vibrant waves"
         dataAiHint="technology abstract"
         ctaPrimaryText="Try AI Generator"
-        ctaPrimaryLink="#generator"
+        ctaPrimaryLink="#generator" // Updated to scroll to section
         ctaSecondaryText="Explore Features"
-        ctaSecondaryLink="#features"
+        ctaSecondaryLink="#features" // Updated to scroll to section
         animate={animateHero}
       />
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <section id="generator" className="mb-16 md:mb-24 scroll-mt-20">
+        <section id="generator" className="mb-16 md:mb-24 scroll-mt-20"> {/* Added scroll-mt-20 for navbar offset */}
           <AiHeadlineGenerator
             onHeadlineGenerated={handleHeadlineGenerated}
             currentHeadline={headline}
@@ -64,7 +75,7 @@ export default function HomePage() {
         
         <Separator className="my-12 md:my-16" />
 
-        <section id="features" className="text-center scroll-mt-20">
+        <section id="features" className="text-center scroll-mt-20"> {/* Added scroll-mt-20 for navbar offset */}
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 md:mb-8 text-foreground">
             Why Choose HeroForge?
           </h2>
@@ -96,11 +107,13 @@ export default function HomePage() {
           </div>
         </section>
       </main>
-      <footer className="py-8 mt-16 border-t border-border">
+      {/* Footer is moved to RootLayout for global presence, or can be kept here if page-specific */}
+       <footer className="py-8 mt-auto border-t border-border"> {/* Added mt-auto to push to bottom */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-muted-foreground text-sm">
-          © {new Date().getFullYear()} HeroForge. Built with Next.js and Tailwind CSS.
+          © {new Date().getFullYear()} CloudVerse & HeroForge. Built with Next.js and Tailwind CSS.
         </div>
       </footer>
-    </div>
+    </>
   );
 }
+
