@@ -6,6 +6,7 @@ import HeroSection from '@/components/hero-section';
 import AiHeadlineGenerator from '@/components/ai-headline-generator';
 import { Separator } from '@/components/ui/separator';
 import FeaturesSection from '@/components/features-section'; // Import the new FeaturesSection
+import AboutSection from '@/components/about-section'; // Import the new AboutSection
 
 export default function HomePage() {
   const [animateHero, setAnimateHero] = useState(false);
@@ -30,6 +31,7 @@ export default function HomePage() {
         <div className="w-full min-h-[70vh] md:min-h-[80vh] bg-background animate-pulse"></div>
         <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           <div className="mb-16 md:mb-24 h-96 bg-muted rounded-lg animate-pulse"></div> {/* Placeholder for Features Section */}
+          <div className="mb-16 md:mb-24 h-96 bg-muted rounded-lg animate-pulse"></div> {/* Placeholder for About Section */}
           <Separator className="my-12 md:my-16" />
           <div className="mb-16 md:mb-24 h-64 bg-muted rounded-lg animate-pulse"></div> {/* Placeholder for AI Generator */}
         </main>
@@ -57,7 +59,8 @@ export default function HomePage() {
         animate={animateHero}
       />
       
-      <FeaturesSection /> {/* Add the new FeaturesSection here */}
+      <FeaturesSection />
+      <AboutSection /> {/* Add the new AboutSection here */}
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <Separator className="my-12 md:my-16" /> 
