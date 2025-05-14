@@ -87,10 +87,8 @@ export default {
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
-        'fade-in-up-hero-headline': 'fade-in-up 0.8s ease-out 0.2s both',
-        'fade-in-up-hero-subheadline': 'fade-in-up 0.8s ease-out 0.4s both',
-        'fade-in-up-hero-description': 'fade-in-up 0.8s ease-out 0.6s both',
-        'fade-in-up-hero-cta': 'fade-in-up 0.8s ease-out 0.8s both',
+        // Removed old hero-specific animations
+        'fade-in-up': 'fade-in-up 0.8s ease-out both', // Generic fade-in-up
         'fade-in-gentle': 'fade-in 1s ease-out 0s both',
   		}
   	}
