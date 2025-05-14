@@ -5,8 +5,9 @@ import { useState, useEffect } from 'react';
 import HeroSection from '@/components/hero-section';
 import AiHeadlineGenerator from '@/components/ai-headline-generator';
 import { Separator } from '@/components/ui/separator';
-import FeaturesSection from '@/components/features-section'; // Import the new FeaturesSection
-import AboutSection from '@/components/about-section'; // Import the new AboutSection
+import FeaturesSection from '@/components/features-section'; 
+import AboutSection from '@/components/about-section'; 
+import SecondaryFeaturesSection from '@/components/secondary-features-section'; // Import the new SecondaryFeaturesSection
 
 export default function HomePage() {
   const [animateHero, setAnimateHero] = useState(false);
@@ -25,13 +26,14 @@ export default function HomePage() {
   };
 
   if (!isMounted) {
-    // Basic skeleton for hero and features section to avoid layout shift
+    // Basic skeleton for sections to avoid layout shift
     return (
       <div className="flex flex-col min-h-screen bg-background">
         <div className="w-full min-h-[70vh] md:min-h-[80vh] bg-background animate-pulse"></div>
         <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           <div className="mb-16 md:mb-24 h-96 bg-muted rounded-lg animate-pulse"></div> {/* Placeholder for Features Section */}
           <div className="mb-16 md:mb-24 h-96 bg-muted rounded-lg animate-pulse"></div> {/* Placeholder for About Section */}
+          <div className="mb-16 md:mb-24 h-96 bg-muted rounded-lg animate-pulse"></div> {/* Placeholder for Secondary Features Section */}
           <Separator className="my-12 md:my-16" />
           <div className="mb-16 md:mb-24 h-64 bg-muted rounded-lg animate-pulse"></div> {/* Placeholder for AI Generator */}
         </main>
@@ -60,7 +62,8 @@ export default function HomePage() {
       />
       
       <FeaturesSection />
-      <AboutSection /> {/* Add the new AboutSection here */}
+      <AboutSection />
+      <SecondaryFeaturesSection /> {/* Add the new SecondaryFeaturesSection here */}
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <Separator className="my-12 md:my-16" /> 
