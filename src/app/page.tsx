@@ -8,7 +8,8 @@ import { Separator } from '@/components/ui/separator';
 import FeaturesSection from '@/components/features-section'; 
 import AboutSection from '@/components/about-section'; 
 import SecondaryFeaturesSection from '@/components/secondary-features-section';
-import SalesSection from '@/components/sales-section'; // Import the new SalesSection
+import SalesSection from '@/components/sales-section';
+import MarketSection from '@/components/market-section'; // Import the new MarketSection
 
 export default function HomePage() {
   const [animateHero, setAnimateHero] = useState(false);
@@ -36,6 +37,7 @@ export default function HomePage() {
           <div className="mb-16 md:mb-24 h-96 bg-muted rounded-lg animate-pulse"></div> {/* Placeholder for About Section */}
           <div className="mb-16 md:mb-24 h-96 bg-muted rounded-lg animate-pulse"></div> {/* Placeholder for Secondary Features Section */}
           <div className="mb-16 md:mb-24 h-96 bg-muted rounded-lg animate-pulse"></div> {/* Placeholder for Sales Section */}
+          <div className="mb-16 md:mb-24 h-96 bg-muted rounded-lg animate-pulse"></div> {/* Placeholder for Market Section */}
           <Separator className="my-12 md:my-16" />
           <div className="mb-16 md:mb-24 h-64 bg-muted rounded-lg animate-pulse"></div> {/* Placeholder for AI Generator */}
         </main>
@@ -66,7 +68,8 @@ export default function HomePage() {
       <FeaturesSection />
       <AboutSection />
       <SecondaryFeaturesSection />
-      <SalesSection /> {/* Add the new SalesSection here */}
+      <SalesSection />
+      <MarketSection /> {/* Add the new MarketSection here */}
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <Separator className="my-12 md:my-16" /> 
@@ -84,3 +87,5 @@ export default function HomePage() {
     </>
   );
 }
+
+    
