@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --background: 220 20% 97%; /* Soft, muted light blue-gray */
-    --foreground: 220 10% 20%; /* Dark blue-gray for text */
+    --background: 210 89% 93%; /* New background color #DDEDFD */
+    --foreground: 220 10% 20%; /* Dark blue-gray for text - should still contrast well */
 
     --card: 220 20% 100%;
     --card-foreground: 220 10% 20%;
