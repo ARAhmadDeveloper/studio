@@ -58,7 +58,7 @@ const CustomLegend = (props: any) => {
 
 export default function SalesSection() {
   return (
-    <section id="sales-data" className="py-16 md:py-24 bg-footer-background"> {/* Changed bg-card to bg-footer-background */}
+    <section id="sales-data" className="py-16 md:py-24 bg-footer-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 xl:gap-16 items-center">
           {/* Left Column: Text Content */}
