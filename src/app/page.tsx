@@ -10,7 +10,7 @@ import AboutSection from '@/components/about-section';
 import SecondaryFeaturesSection from '@/components/secondary-features-section';
 import SalesSection from '@/components/sales-section';
 import MarketSection from '@/components/market-section';
-import CtaSection from '@/components/cta-section'; // Import the new CtaSection
+import CtaSection from '@/components/cta-section'; 
 
 export default function HomePage() {
   const [animateHero, setAnimateHero] = useState(false);
@@ -43,11 +43,7 @@ export default function HomePage() {
           <Separator className="my-12 md:my-16" />
           <div className="mb-16 md:mb-24 h-64 bg-muted rounded-lg animate-pulse"></div> {/* Placeholder for AI Generator */}
         </main>
-        <footer className="py-8 mt-16 border-t border-border">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-muted-foreground text-sm">
-            Loading...
-          </div>
-        </footer>
+        {/* Removed loading footer as global footer will handle this */}
       </div>
     );
   }
@@ -72,7 +68,7 @@ export default function HomePage() {
       <SecondaryFeaturesSection />
       <SalesSection />
       <MarketSection />
-      <CtaSection /> {/* Add the new CtaSection here */}
+      <CtaSection /> 
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <Separator className="my-12 md:my-16" /> 
@@ -82,11 +78,7 @@ export default function HomePage() {
           />
         </section>
       </main>
-       <footer className="py-8 mt-auto border-t border-border">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-muted-foreground text-sm">
-          © {new Date().getFullYear()} CloudVerse. Built with Next.js and Tailwind CSS.
-        </div>
-      </footer>
+       {/* Removed inline footer from here, it's now global in layout.tsx */}
     </>
   );
 }
