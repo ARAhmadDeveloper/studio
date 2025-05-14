@@ -31,7 +31,7 @@ export default function HeroSection({
 }: HeroSectionProps) {
   return (
     <section className={cn(
-      "relative w-full text-foreground py-20 md:py-32 min-h-[70vh] lg:min-h-[80vh] flex items-center",
+      "relative w-full text-foreground py-20 md:py-32 min-h-[70vh] lg:min-h-[80vh] flex items-center bg-footer-background", // Changed background
       animate && "animate-fade-in-gentle" 
     )}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

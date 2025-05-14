@@ -54,14 +54,13 @@ const navItems = [
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  // useEffect for isMounted can be used if client-specific logic that affects initial render is present.
-  // For this navbar structure, it's generally not needed unless a hook like useIsMobile was directly used for conditional rendering.
-
-  // Styles based on the provided image
-  const navButtonBaseStyle = "px-4 py-2 text-sm font-medium rounded-full focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950";
-  const lightBlueButtonStyle = cn(navButtonBaseStyle, "text-[#0c4a6e] bg-[#e0f2fe] hover:bg-[#bae6fd] focus-visible:ring-[#38bdf8]");
-  const primaryBlueButtonStyle = cn(navButtonBaseStyle, "bg-sky-500 text-white hover:bg-sky-600 focus-visible:ring-sky-500");
-  const dropdownItemStyle = "text-[#0c4a6e] hover:!bg-[#bae6fd] focus:!bg-[#bae6fd] focus:!text-[#075985] rounded-[calc(var(--radius)-4px)]";
+  
+  const navButtonBaseStyle = "px-4 py-2 text-sm font-medium rounded-full focus-visible:ring-2 focus-visible:ring-offset-2";
+  // Updated style for nav links and Log In button for light navbar background
+  const navLinkButtonStyle = cn(navButtonBaseStyle, "text-sky-700 bg-white border border-sky-100 hover:bg-sky-50 focus-visible:ring-sky-500 focus-visible:ring-offset-footer-background");
+  const primaryBlueButtonStyle = cn(navButtonBaseStyle, "bg-sky-500 text-white hover:bg-sky-600 focus-visible:ring-sky-500 focus-visible:ring-offset-footer-background");
+  // Updated style for dropdown items to be on white background
+  const dropdownItemStyle = "text-sky-700 hover:!bg-sky-50 focus:!bg-sky-50 focus:!text-sky-800 rounded-[calc(var(--radius)-4px)]";
 
 
   const NavLinksContent = ({ inSheet = false }: { inSheet?: boolean }) => (
@@ -72,8 +71,8 @@ export default function Navbar() {
             <Button
               variant="ghost"
               className={cn(
-                lightBlueButtonStyle,
-                inSheet ? "w-full justify-start !bg-transparent !text-gray-100 hover:!bg-neutral-700 focus-visible:!ring-sky-500" : ""
+                navLinkButtonStyle, // Use new style for light navbar
+                inSheet ? "w-full justify-start !bg-transparent !text-sky-700 hover:!bg-sky-100 focus-visible:!ring-sky-500" : ""
               )}
             >
               {item.label}
@@ -82,7 +81,7 @@ export default function Navbar() {
           </DropdownMenuTrigger>
           <DropdownMenuContent 
             className={cn(
-                "bg-[#e0f2fe] border-none shadow-lg mt-1 py-1", // Removed border-[#bae6fd] as it's often too light, shadow is better
+                "bg-white border border-sky-100 shadow-lg mt-1 py-1", // Dropdown on white background
                 inSheet ? "w-[calc(100vw-5rem)] sm:w-auto" : "min-w-[180px]" 
             )}
             align="start"
@@ -99,11 +98,11 @@ export default function Navbar() {
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-neutral-950 shadow-sm"> {/* Navbar background: very dark */}
+    <header className="sticky top-0 z-50 w-full bg-footer-background shadow-sm"> {/* Navbar background: #DDEDFD */}
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <Cloud className="h-7 w-7 sm:h-8 sm:w-8 text-sky-500" /> {/* Logo icon color */}
-          <span className="text-xl sm:text-2xl font-bold text-gray-100">CloudVerse</span> {/* Logo text color */}
+          <span className="text-xl sm:text-2xl font-bold text-sky-700">CloudVerse</span> {/* Logo text color for light bg */}
         </Link>
 
         {/* Desktop Navigation */}
@@ -114,7 +113,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-2">
           <Button
             variant="ghost"
-            className={lightBlueButtonStyle}
+            className={navLinkButtonStyle} // Use new style for light navbar
             asChild
           >
             <Link href="/login">Log In</Link>
@@ -133,25 +132,26 @@ export default function Navbar() {
         <div className="md:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-gray-100 hover:bg-neutral-800 focus-visible:ring-1 focus-visible:ring-neutral-400">
+              <Button variant="ghost" size="icon" className="text-sky-600 hover:bg-sky-100/50 focus-visible:ring-1 focus-visible:ring-sky-400">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full max-w-[280px] sm:max-w-xs bg-neutral-900 p-0 border-l border-neutral-800 flex flex-col">
-                <div className="p-4 border-b border-neutral-800">
+            <SheetContent side="right" className="w-full max-w-[280px] sm:max-w-xs bg-white p-0 border-l border-border flex flex-col">
+                <div className="p-4 border-b border-border">
                     <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
                     <Cloud className="h-7 w-7 text-sky-500" />
-                    <span className="text-xl font-bold text-gray-100">CloudVerse</span>
+                    <span className="text-xl font-bold text-sky-700">CloudVerse</span>
                     </Link>
                 </div>
                 <nav className="flex-grow p-4 space-y-2 overflow-y-auto">
+                  {/* Pass text-sky-700 for navlinks inside sheet on white background */}
                   <NavLinksContent inSheet={true} />
                 </nav>
-                <div className="p-4 mt-auto border-t border-neutral-800 space-y-2">
+                <div className="p-4 mt-auto border-t border-border space-y-2">
                   <Button
                     variant="outline"
-                    className="w-full justify-center text-gray-100 border-neutral-700 hover:bg-neutral-800 hover:text-gray-50 focus-visible:ring-neutral-400"
+                    className="w-full justify-center text-sky-700 border-sky-200 hover:bg-sky-50 hover:text-sky-800 focus-visible:ring-sky-400"
                     asChild
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -174,4 +174,3 @@ export default function Navbar() {
     </header>
   );
 }
-
