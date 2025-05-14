@@ -66,7 +66,7 @@ const PerformanceCustomLegend = (props: any) => {
 
 export default function MarketSection() {
   return (
-    <section id="market-analysis" className="py-16 md:py-24 bg-background">
+    <section id="market-analysis" className="py-16 md:py-24 bg-card"> {/* Changed to bg-card */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 xl:gap-16 items-start">
           {/* Left Column: Charts */}
