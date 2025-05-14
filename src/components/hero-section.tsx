@@ -30,7 +30,7 @@ export default function HeroSection({
 }: HeroSectionProps) {
   return (
     <section className={cn(
-      "relative w-full bg-neutral-950 text-white py-20 md:py-32 min-h-[70vh] lg:min-h-[80vh] flex items-center",
+      "relative w-full text-foreground py-20 md:py-32 min-h-[70vh] lg:min-h-[80vh] flex items-center", // Removed bg-neutral-950, changed text-white to text-foreground
       animate && "animate-fade-in-gentle" // Overall section fade-in
     )}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,7 +51,7 @@ export default function HeroSection({
           {/* Headline */}
           <h1
             className={cn(
-              "text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 text-sky-100", // Adjusted text color for better contrast
+              "text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 text-foreground", // Changed text-sky-100 to text-foreground
               "opacity-0",
                animate && "animate-[fade-in-up_0.8s_ease-out_0.4s_both]"
             )}
@@ -64,7 +64,7 @@ export default function HeroSection({
           {/* Description */}
           <p
             className={cn(
-              "text-base sm:text-lg text-sky-300 mb-8 max-w-xl", // Adjusted text color
+              "text-base sm:text-lg text-muted-foreground mb-8 max-w-xl", // Changed text-sky-300 to text-muted-foreground
               "opacity-0",
               animate && "animate-[fade-in-up_0.8s_ease-out_0.6s_both]"
             )}
@@ -101,7 +101,7 @@ export default function HeroSection({
           {/* Contact Text */}
           <p
             className={cn(
-              "text-sm text-sky-300", // Adjusted text color
+              "text-sm text-muted-foreground", // Changed text-sky-300 to text-muted-foreground
               "opacity-0",
                animate && "animate-[fade-in-up_0.8s_ease-out_0.9s_both]"
             )}
