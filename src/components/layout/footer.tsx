@@ -5,11 +5,43 @@ import Link from 'next/link';
 import { Cloud, ChevronDown, Send, Twitter, Linkedin, Users } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 
-const footerNavItems = [
-  { label: "PRODUCTS", href: "/products" },
-  { label: "PLATFORM", href: "/platform" },
-  { label: "SOLUTION", href: "/solutions" },
-  { label: "RESOURCES", href: "/resources" },
+// Using the same navItems structure as the Navbar for consistency
+const navItems = [
+  {
+    label: "Products",
+    href: "#products", // Main link for the category itself, can be # or a dedicated page
+    subItems: [ // Sub-items are defined but not used for dropdowns in this footer version
+      { label: "AI Solutions", href: "/products/ai-solutions" },
+      { label: "Cloud Hosting", href: "/products/cloud-hosting" },
+      { label: "Data Analytics", href: "/products/data-analytics" },
+    ],
+  },
+  {
+    label: "Platform",
+    href: "#platform",
+    subItems: [
+      { label: "Developer API", href: "/platform/api" },
+      { label: "Integrations", href: "/platform/integrations" },
+      { label: "Security", href: "/platform/security" },
+    ],
+  },
+  {
+    label: "Solution",
+    href: "#solutions",
+    subItems: [
+      { label: "For Startups", href: "/solutions/startups" },
+      { label: "For Enterprise", href: "/solutions/enterprise" },
+    ],
+  },
+  {
+    label: "Resources",
+    href: "#resources",
+    subItems: [
+      { label: "Documentation", href: "/resources/docs" },
+      { label: "Blog", href: "/resources/blog" },
+      { label: "Support Center", href: "/resources/support" },
+    ],
+  },
 ];
 
 const socialLinks = [
@@ -30,13 +62,13 @@ export default function Footer() {
             <span>CloudVerse</span>
           </Link>
           <nav className="flex flex-wrap justify-center lg:justify-end gap-2 lg:gap-3">
-            {footerNavItems.map((item) => (
+            {navItems.map((item) => (
               <Link
                 key={item.label}
-                href={item.href}
-                className="px-4 py-2 text-xs font-medium rounded-full bg-white text-neutral-700 hover:bg-neutral-100 shadow-sm border border-neutral-200 flex items-center transition-colors"
+                href={item.href} // Link to the main category page or anchor
+                className="px-4 py-2 text-xs font-medium rounded-full bg-white text-neutral-700 hover:bg-neutral-100 shadow-sm border border-neutral-200 flex items-center transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-500"
               >
-                {item.label}
+                {item.label.toUpperCase()} {/* Match styling from image (all caps) */}
                 <ChevronDown className="ml-1.5 h-3.5 w-3.5 opacity-70" />
               </Link>
             ))}
