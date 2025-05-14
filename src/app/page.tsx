@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import HeroSection from '@/components/hero-section';
-import AiHeadlineGenerator from '@/components/ai-headline-generator';
+// import AiHeadlineGenerator from '@/components/ai-headline-generator'; // Removed import
 import { Separator } from '@/components/ui/separator';
 import FeaturesSection from '@/components/features-section'; 
 import AboutSection from '@/components/about-section'; 
@@ -24,9 +24,10 @@ export default function HomePage() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleHeadlineGenerated = (newHeadline: string) => {
-    console.log("AI Generated Headline:", newHeadline);
-  };
+  // Removed handleHeadlineGenerated function
+  // const handleHeadlineGenerated = (newHeadline: string) => {
+  //   console.log("AI Generated Headline:", newHeadline);
+  // };
 
   if (!isMounted) {
     // Basic skeleton for sections to avoid layout shift
@@ -40,10 +41,8 @@ export default function HomePage() {
           <div className="mb-16 md:mb-24 h-96 bg-muted rounded-lg animate-pulse"></div> {/* Placeholder for Sales Section */}
           <div className="mb-16 md:mb-24 h-96 bg-muted rounded-lg animate-pulse"></div> {/* Placeholder for Market Section */}
           <div className="my-12 md:my-16 h-64 bg-muted rounded-xl animate-pulse"></div> {/* Placeholder for CtaSection */}
-          <Separator className="my-12 md:my-16" />
-          <div className="mb-16 md:mb-24 h-64 bg-muted rounded-lg animate-pulse"></div> {/* Placeholder for AI Generator */}
+          {/* Removed Separator and Placeholder for AI Generator */}
         </main>
-        {/* Removed loading footer as global footer will handle this */}
       </div>
     );
   }
@@ -70,15 +69,7 @@ export default function HomePage() {
       <MarketSection />
       <CtaSection /> 
 
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <Separator className="my-12 md:my-16" /> 
-        <section id="generator" className="mb-16 md:mb-24 scroll-mt-20">
-          <AiHeadlineGenerator
-            onHeadlineGenerated={handleHeadlineGenerated}
-          />
-        </section>
-      </main>
-       {/* Removed inline footer from here, it's now global in layout.tsx */}
+      {/* Removed AI Headline Generator section and its wrapping main/section tags */}
     </>
   );
 }
