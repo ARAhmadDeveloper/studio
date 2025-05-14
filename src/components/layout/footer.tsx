@@ -2,15 +2,15 @@
 "use client";
 
 import Link from 'next/link';
-import { Cloud, ChevronDown, Send, Twitter, Linkedin, Users } from 'lucide-react';
+import Image from 'next/image'; // Import next/image
+import { ChevronDown, Send, Twitter, Linkedin, Users } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 
-// Using the same navItems structure as the Navbar for consistency
 const navItems = [
   {
     label: "Products",
-    href: "#products", // Main link for the category itself, can be # or a dedicated page
-    subItems: [ // Sub-items are defined but not used for dropdowns in this footer version
+    href: "#products", 
+    subItems: [ 
       { label: "AI Solutions", href: "/products/ai-solutions" },
       { label: "Cloud Hosting", href: "/products/cloud-hosting" },
       { label: "Data Analytics", href: "/products/data-analytics" },
@@ -48,7 +48,7 @@ const socialLinks = [
   { Icon: Send, href: "#", label: "Telegram" },
   { Icon: Twitter, href: "#", label: "Twitter" },
   { Icon: Linkedin, href: "#", label: "LinkedIn" },
-  { Icon: Users, href: "#", label: "VK" }, // Placeholder for VK
+  { Icon: Users, href: "#", label: "VK" }, 
 ];
 
 export default function Footer() {
@@ -58,17 +58,23 @@ export default function Footer() {
         {/* Top Row: Logo and Nav Links */}
         <div className="flex flex-col lg:flex-row justify-between items-center mb-8 lg:mb-10">
           <Link href="/" className="flex items-center gap-2 text-xl font-bold text-foreground mb-6 lg:mb-0 shrink-0">
-            <Cloud className="h-7 w-7 sm:h-8 sm:w-8 text-primary" />
+            <Image 
+              src="/cloudverse-logo.png" 
+              alt="CloudVerse Logo" 
+              width={28} 
+              height={28} 
+              className="h-7 w-7 sm:h-7 sm:w-7" // Adjusted size for image in footer
+            />
             <span>CloudVerse</span>
           </Link>
           <nav className="flex flex-wrap justify-center lg:justify-end gap-2 lg:gap-3">
             {navItems.map((item) => (
               <Link
                 key={item.label}
-                href={item.href} // Link to the main category page or anchor
+                href={item.href} 
                 className="px-4 py-2 text-xs font-medium rounded-full bg-white text-neutral-700 hover:bg-neutral-100 shadow-sm border border-neutral-200 flex items-center transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-500"
               >
-                {item.label.toUpperCase()} {/* Match styling from image (all caps) */}
+                {item.label.toUpperCase()} 
                 <ChevronDown className="ml-1.5 h-3.5 w-3.5 opacity-70" />
               </Link>
             ))}

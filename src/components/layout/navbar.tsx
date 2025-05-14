@@ -2,7 +2,8 @@
 "use client";
 
 import Link from 'next/link';
-import { Cloud, ChevronDown, ArrowRight, Menu } from 'lucide-react';
+import Image from 'next/image'; // Import next/image
+import { ChevronDown, ArrowRight, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -56,10 +57,8 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   const navButtonBaseStyle = "px-4 py-2 text-sm font-medium rounded-full focus-visible:ring-2 focus-visible:ring-offset-2";
-  // Updated style for nav links and Log In button for light navbar background
   const navLinkButtonStyle = cn(navButtonBaseStyle, "text-sky-700 bg-white border border-sky-100 hover:bg-sky-50 focus-visible:ring-sky-500 focus-visible:ring-offset-footer-background");
   const primaryBlueButtonStyle = cn(navButtonBaseStyle, "bg-sky-500 text-white hover:bg-sky-600 focus-visible:ring-sky-500 focus-visible:ring-offset-footer-background");
-  // Updated style for dropdown items to be on white background
   const dropdownItemStyle = "text-sky-700 hover:!bg-sky-50 focus:!bg-sky-50 focus:!text-sky-800 rounded-[calc(var(--radius)-4px)]";
 
 
@@ -71,7 +70,7 @@ export default function Navbar() {
             <Button
               variant="ghost"
               className={cn(
-                navLinkButtonStyle, // Use new style for light navbar
+                navLinkButtonStyle, 
                 inSheet ? "w-full justify-start !bg-transparent !text-sky-700 hover:!bg-sky-100 focus-visible:!ring-sky-500" : ""
               )}
             >
@@ -81,7 +80,7 @@ export default function Navbar() {
           </DropdownMenuTrigger>
           <DropdownMenuContent 
             className={cn(
-                "bg-white border border-sky-100 shadow-lg mt-1 py-1", // Dropdown on white background
+                "bg-white border border-sky-100 shadow-lg mt-1 py-1", 
                 inSheet ? "w-[calc(100vw-5rem)] sm:w-auto" : "min-w-[180px]" 
             )}
             align="start"
@@ -98,11 +97,17 @@ export default function Navbar() {
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-footer-background shadow-sm"> {/* Navbar background: #DDEDFD */}
+    <header className="sticky top-0 z-50 w-full bg-footer-background shadow-sm"> 
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <Cloud className="h-7 w-7 sm:h-8 sm:w-8 text-sky-500" /> {/* Logo icon color */}
-          <span className="text-xl sm:text-2xl font-bold text-sky-700">CloudVerse</span> {/* Logo text color for light bg */}
+          <Image 
+            src="/cloudverse-logo.png" 
+            alt="CloudVerse Logo" 
+            width={32} 
+            height={32} 
+            className="h-8 w-8 sm:h-8 sm:w-8" // Adjusted size for image
+          />
+          <span className="text-xl sm:text-2xl font-bold text-sky-700">CloudVerse</span> 
         </Link>
 
         {/* Desktop Navigation */}
@@ -113,7 +118,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-2">
           <Button
             variant="ghost"
-            className={navLinkButtonStyle} // Use new style for light navbar
+            className={navLinkButtonStyle} 
             asChild
           >
             <Link href="/login">Log In</Link>
@@ -140,12 +145,17 @@ export default function Navbar() {
             <SheetContent side="right" className="w-full max-w-[280px] sm:max-w-xs bg-white p-0 border-l border-border flex flex-col">
                 <div className="p-4 border-b border-border">
                     <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Cloud className="h-7 w-7 text-sky-500" />
+                    <Image 
+                      src="/cloudverse-logo.png" 
+                      alt="CloudVerse Logo" 
+                      width={28} 
+                      height={28} 
+                      className="h-7 w-7" // Adjusted size for image in sheet
+                    />
                     <span className="text-xl font-bold text-sky-700">CloudVerse</span>
                     </Link>
                 </div>
                 <nav className="flex-grow p-4 space-y-2 overflow-y-auto">
-                  {/* Pass text-sky-700 for navlinks inside sheet on white background */}
                   <NavLinksContent inSheet={true} />
                 </nav>
                 <div className="p-4 mt-auto border-t border-border space-y-2">
