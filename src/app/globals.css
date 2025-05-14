@@ -4,8 +4,9 @@
 
 @layer base {
   :root {
-    --background: 210 89% 93%; /* New background color #DDEDFD */
-    --foreground: 220 10% 20%; /* Dark blue-gray for text - should still contrast well */
+    --background: 0 0% 100%; /* Main background is white */
+    --footer-background: 210 89% 93%; /* Light blue for footer #DDEDFD */
+    --foreground: 220 10% 20%; /* Dark blue-gray for text */
 
     --card: 220 20% 100%;
     --card-foreground: 220 10% 20%;
@@ -52,6 +53,8 @@
   .dark {
     --background: 220 15% 10%;
     --foreground: 220 10% 90%;
+
+    --footer-background: 220 15% 12%; /* Darker footer for dark mode */
 
     --card: 220 15% 15%;
     --card-foreground: 220 10% 90%;
