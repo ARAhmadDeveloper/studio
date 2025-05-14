@@ -53,7 +53,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-background text-muted-foreground py-8 lg:py-12 border-t border-border">
+    <footer className="bg-background text-muted-foreground py-8 lg:py-12 border-t border-border mt-12 lg:mt-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Row: Logo and Nav Links */}
         <div className="flex flex-col lg:flex-row justify-between items-center mb-8 lg:mb-10">
