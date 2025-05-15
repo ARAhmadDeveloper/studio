@@ -1,6 +1,6 @@
 # ARAHMADDEVELOPER
 
-Preview Site[https://cloudverseapp.netlify.app/]
+(Preview Site)[https://cloudverseapp.netlify.app/]
 
 This is a NextJS starter.
 
