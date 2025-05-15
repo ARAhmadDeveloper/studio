@@ -9,21 +9,21 @@ const secondaryFeaturesData = [
   {
     title: "Advanced Automation",
     description: "Our SaaS solution is built with the unique needs of entrepreneurs in mind",
-    imageSrc: "https://placehold.co/300x180.png",
+    imageSrc: require("./img/f21.png"),
     imageAlt: "Advanced Automation illustration",
     aiHint: "line graph data" 
   },
   {
     title: "Dynamic Personalization",
     description: "Engage your audience like never before with personalized",
-    imageSrc: "https://placehold.co/300x180.png",
+    imageSrc: require("./img/f22.png"),
     imageAlt: "Dynamic Personalization illustration",
     aiHint: "bar chart increasing"
   },
   {
     title: "Powerful Analytics",
     description: "Knowledge is power! Gain valuable insights into the performance",
-    imageSrc: "https://placehold.co/300x180.png",
+    imageSrc: require("./img/f23.png"),
     imageAlt: "Powerful Analytics illustration",
     aiHint: "radial chart progress"
   },

@@ -34,15 +34,15 @@ export default function AboutSection({ animate = false }: AboutSectionProps) {
           {/* Left Column: Placeholder Image/Block */}
           <div className="w-full h-80 lg:h-[450px] bg-slate-200 dark:bg-slate-700 rounded-lg shadow-lg flex items-center justify-center">
             {/* You can replace this div with an <Image /> component when ready */}
-            {/* <Image 
-              src="https://placehold.co/600x450.png" 
+            <Image 
+              src={require("./img/leftSide.png")} 
               alt="About section placeholder image" 
               width={600} 
               height={450} 
               className="rounded-lg object-cover"
               data-ai-hint="marketing team collaboration" 
-            /> */}
-             <p className="text-slate-500 dark:text-slate-400 text-lg">Placeholder Image Area</p>
+            />
+             {/* <p className="text-slate-500 dark:text-slate-400 text-lg">Placeholder Image Area</p> */}
           </div>
 
           {/* Right Column: Text Content */}

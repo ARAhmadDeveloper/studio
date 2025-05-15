@@ -9,35 +9,35 @@ const featuresData = [
   {
     title: "Tailored for Entrepreneurs",
     description: "Our SaaS solution is built with the unique needs of entrepreneurs in mind.",
-    imageSrc: "https://placehold.co/300x180.png",
+    imageSrc: require("./img/f1.png"),
     imageAlt: "Tailored for Entrepreneurs illustration",
     aiHint: "line graph abstract"
   },
   {
     title: "Empowering Growth",
     description: "Our SaaS solution is built with the unique needs of entrepreneurs in mind.",
-    imageSrc: "https://placehold.co/300x180.png",
+    imageSrc: require("./img/f2.png"),
     imageAlt: "Empowering Growth illustration",
     aiHint: "bar chart growth"
   },
   {
     title: "Dedicated Support",
     description: "Our SaaS solution is built with the unique needs of entrepreneurs in mind.",
-    imageSrc: "https://placehold.co/300x180.png",
+    imageSrc: require("./img/f3.png"),
     imageAlt: "Dedicated Support illustration",
     aiHint: "chat interface support"
   },
   {
     title: "Affordability",
     description: "Control spend, remove reporting admin, and say goodbye to broker fees.",
-    imageSrc: "https://placehold.co/300x180.png",
+    imageSrc: require("./img/f4.png"),
     imageAlt: "Affordability illustration",
     aiHint: "financial graph money"
   },
   {
     title: "All-in-one Place",
     description: "Manage policies from multiple providers in one single platform and make changes when necessary.",
-    imageSrc: "https://placehold.co/300x180.png",
+    imageSrc: require("./img/f5.png"),
     imageAlt: "All-in-one Place illustration",
     aiHint: "abstract diagram organization"
   }
@@ -74,9 +74,12 @@ export default function FeaturesSection({ animate = false }: FeaturesSectionProp
             <Card 
               key={feature.title} 
               className={cn(
-                "flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg",
+                "flex flex-col overflow-hidden  shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg",
                 index < 3 ? "lg:col-span-2" : "lg:col-span-3"
               )}
+               style={{
+          backgroundColor: "#EBF5FD"
+        }}
             >
               <CardHeader>
                 <CardTitle className="text-xl font-semibold text-card-foreground">{feature.title}</CardTitle>
@@ -88,7 +91,7 @@ export default function FeaturesSection({ animate = false }: FeaturesSectionProp
                     src={feature.imageSrc}
                     alt={feature.imageAlt}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     data-ai-hint={feature.aiHint}
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />

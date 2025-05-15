@@ -71,7 +71,7 @@ export default function Navbar() {
               variant="ghost"
               className={cn(
                 navLinkButtonStyle, 
-                inSheet ? "w-full justify-start !bg-transparent !text-sky-700 hover:!bg-sky-100 focus-visible:!ring-sky-500" : ""
+                inSheet ? "w-full justify-start !bg-transparent !text-red focus-visible:!ring-red-500" : ""
               )}
             >
               {item.label}
@@ -101,7 +101,7 @@ export default function Navbar() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image 
-            src="/cloudverse-logo.png" 
+            src={require("./CloudVerseLogo.png")}
             alt="CloudVerse Logo" 
             width={32} 
             height={32} 

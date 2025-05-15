@@ -90,13 +90,14 @@ export default function HeroSection({
                   </span>
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="bg-white hover:bg-gray-100 text-sky-700 border-gray-300 hover:border-gray-400 shadow-md transform transition-transform hover:scale-105 focus:ring-sky-400">
+              <Button asChild variant="outline" size="lg" className="bg-white hover:bg-sky-600 text-sky-700 border-gray-300 hover:border-gray-400 shadow-md transform transition-transform hover:scale-105 focus:ring-sky-400">
                 <Link href={secondaryCtaLink} className="flex items-center justify-center sm:justify-start">
                   {secondaryCtaText}
                   <span className="ml-2 bg-sky-500 rounded-full p-1.5 inline-flex items-center justify-center">
                     <ArrowRight className="h-4 w-4 text-white" />
                   </span>
                 </Link>
+
               </Button>
             </div>
 
@@ -117,14 +118,16 @@ export default function HeroSection({
             animate && "animate-[fade-in-up_0.8s_ease-out_1s_both]" // Added animation for image
           )}>
             <Image
-              src="https://placehold.co/600x400.png"
+              src={require("./img/rightHero.png")} 
               alt="Hero Image Placeholder"
               width={600}
               height={400}
               className="rounded-xl shadow-2xl object-cover"
               data-ai-hint="abstract tech"
               priority // Good for LCP
+
             />
+
           </div>
         </div>
       </div>
