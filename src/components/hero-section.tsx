@@ -102,21 +102,22 @@ export default function HeroSection({
             </div>
 
             {/* Contact Text */}
-            <p
+            <a
               className={cn(
                 "text-sm text-muted-foreground",
-                "opacity-0",
+                "opacity-0 hover:underline cursor-pointer",
                  animate && "animate-[fade-in-up_0.8s_ease-out_0.9s_both]"
               )}
             >
               {contactText}
-            </p>
+            </a>
           </div>
           <div className={cn(
             "hidden lg:flex justify-center items-center",
             "opacity-0",
             animate && "animate-[fade-in-up_0.8s_ease-out_1s_both]" // Added animation for image
           )}>
+            
             <Image
               src={require("./img/rightHero.png")} 
               alt="Hero Image Placeholder"
